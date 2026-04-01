@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Noticias | Proyecto de Pista</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
+html{scroll-behavior:smooth}
+body{background:#eef2f7;color:#333}
+header{background:linear-gradient(90deg,#0f2027,#203a43,#2c5364);color:white;padding:30px;text-align:center}
+nav{background:#111;padding:12px;text-align:center;position:sticky;top:0;z-index:1000}
+nav a{color:white;margin:0 15px;text-decoration:none;font-weight:600;transition:.3s}
+nav a:hover{color:#00d4ff}
+.hero{position:relative;height:400px;background:url('https://images.unsplash.com/photo-1503387762-592deb58ef4e') center/cover;display:flex;align-items:center;justify-content:center;color:white}
+.hero::after{content:'';position:absolute;width:100%;height:100%;background:rgba(0,0,0,0.6)}
+.hero h1{position:relative;font-size:40px;text-align:center;animation:fadeIn 2s ease}
+.container{width:90%;margin:auto;margin-top:30px}
+.grid{display:grid;grid-template-columns:2fr 1fr;gap:20px}
+.card{background:white;padding:20px;border-radius:15px;box-shadow:0 10px 25px rgba(0,0,0,0.1);animation:fadeUp 1s ease}
+.card img{width:100%;border-radius:10px;margin:10px 0}
+.sidebar .card{margin-bottom:20px}
+.section{margin-top:60px}
+.comment{background:#f9f9f9;padding:15px;border-left:5px solid #00a8ff;margin-bottom:15px;border-radius:8px}
+.thanks{background:#dff9fb;padding:20px;border-radius:10px}
+form input, form textarea{
+    width:100%;
+    padding:12px;
+    margin:10px 0;
+    border-radius:8px;
+    border:1px solid #ccc
+}
+form button{
+    background:#0f3460;
+    color:white;
+    padding:12px 20px;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+}
+form button:hover{background:#00a8ff}
+footer{margin-top:50px;background:#111;color:white;text-align:center;padding:25px}
+@keyframes fadeIn{from{opacity:0;transform:translateY(-20px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:768px){.grid{grid-template-columns:1fr}.hero h1{font-size:28px}}
+</style>
+</head>
+
+<body>
+
+<header id="inicio">
+    <h1>PORTAL DE NOTICIAS PROFESIONAL</h1>
+    <p>Innovación | Infraestructura | Desarrollo</p>
+</header>
+
+<nav>
+    <a href="#inicio">Inicio</a>
+    <a href="#noticias">Noticias</a>
+    <a href="#proyectos">Proyectos</a>
+    <a href="#contacto">Contacto</a>
+</nav>
+
+<div class="hero">
+    <h1>Construcción de Nueva Pista Marca un Hito en Ingeniería</h1>
+</div>
+
+<div class="container">
+
+<div class="section" id="inicio">
+    <div class="card">
+        <h2>Bienvenido al Portal</h2>
+        <p>Portal informativo sobre el proyecto liderado por René Muñoz Perot del Instituto Profesional AIEP.</p>
+    </div>
+</div>
+
+<div class="section" id="noticias">
+    <h2>Noticias Destacadas</h2>
+    <div class="grid">
+        <div class="card">
+            <h3>Avance del Proyecto</h3>
+            <p>70% de avance con cumplimiento de estándares.</p>
+        </div>
+        <div class="card">
+            <h3>Impacto Urbano</h3>
+            <p>Mejora significativa en conectividad.</p>
+        </div>
+    </div>
+</div>
+
+<div class="section" id="proyectos">
+    <h2>Detalles del Proyecto</h2>
+    <div class="card">
+        <p>Uso de tecnología moderna, materiales sustentables y diseño seguro.</p>
+        <p>Proyecto liderado por René Muñoz Perot (AIEP).</p>
+    </div>
+</div>
+
+<div class="section">
+<div class="grid">
+<div class="card">
+    <h2>Proyecto Principal</h2>
+    <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1200&q=80" alt="Construcción de pista moderna">
+    <p>Obra de alto impacto en infraestructura urbana.</p>
+</div>
+<div class="sidebar">
+    <div class="card">
+        <h3>Última Hora</h3>
+        <p>Proyecto en tiempo récord.</p>
+    </div>
+</div>
+</div>
+</div>
+
+<div class="section">
+    <h2>Opiniones</h2>
+    <div class="comment"><strong>Aline Medina:</strong><p>Innovador.</p></div>
+    <div class="comment"><strong>Felipe Aviño:</strong><p>Gran aporte.</p></div>
+    <div class="comment"><strong>Christian Escobar:</strong><p>Excelente.</p></div>
+</div>
+
+<div class="section">
+    <h2>Agradecimiento</h2>
+    <div class="thanks">René Muñoz P agradece a Roberto Carmona Claro.</div>
+</div>
+
+<div class="section" id="contacto">
+    <h2>Contacto</h2>
+    <div class="card">
+        <form onsubmit="enviarFormulario(event)">
+            <input type="text" placeholder="Tu nombre" required>
+            <input type="email" placeholder="Tu correo" required>
+            <textarea rows="5" placeholder="Tu mensaje" required></textarea>
+            <button type="submit">Enviar Mensaje</button>
+        </form>
+        <p id="mensajeExito" style="display:none;color:green;margin-top:10px">Mensaje enviado correctamente ✔</p>
+    </div>
+</div>
+
+</div>
+
+<footer>
+    <p>&copy; 2026 Noticias Profesionales</p>
+</footer>
+
+<script>
+function enviarFormulario(e){
+    e.preventDefault();
+    document.getElementById('mensajeExito').style.display='block';
+}
+
+window.addEventListener('scroll',()=>{
+    document.querySelectorAll('.card').forEach(el=>{
+        const top=el.getBoundingClientRect().top;
+        if(top<window.innerHeight-50){
+            el.style.opacity=1;
+            el.style.transform='translateY(0)';
+        }
+    })
+})
+</script>
+
+</body>
+</html>
