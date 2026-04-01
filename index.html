@@ -1,166 +1,230 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Noticias | Proyecto de Pista</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Periódico El Faro - Prototipo</title>
+    <style>
+        /* Estilos CSS Básicos para presentación de Wireframe/Prototipo */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            color: #333;
+            line-height: 1.6;
+        }
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+        /* 1. PORTADA: Título y Logotipo */
+        header {
+            background-color: #f4f4f4;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 2px solid #ddd;
+        }
+        header h1 {
+            margin: 0;
+            color: #2c3e50;
+        }
+        header .logo-placeholder {
+            font-size: 1.2em;
+            color: #666;
+            margin-bottom: 10px;
+            font-style: italic;
+        }
 
-<style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
-html{scroll-behavior:smooth}
-body{background:#eef2f7;color:#333}
-header{background:linear-gradient(90deg,#0f2027,#203a43,#2c5364);color:white;padding:30px;text-align:center}
-nav{background:#111;padding:12px;text-align:center;position:sticky;top:0;z-index:1000}
-nav a{color:white;margin:0 15px;text-decoration:none;font-weight:600;transition:.3s}
-nav a:hover{color:#00d4ff}
-.hero{position:relative;height:400px;background:url('https://images.unsplash.com/photo-1503387762-592deb58ef4e') center/cover;display:flex;align-items:center;justify-content:center;color:white}
-.hero::after{content:'';position:absolute;width:100%;height:100%;background:rgba(0,0,0,0.6)}
-.hero h1{position:relative;font-size:40px;text-align:center;animation:fadeIn 2s ease}
-.container{width:90%;margin:auto;margin-top:30px}
-.grid{display:grid;grid-template-columns:2fr 1fr;gap:20px}
-.card{background:white;padding:20px;border-radius:15px;box-shadow:0 10px 25px rgba(0,0,0,0.1);animation:fadeUp 1s ease}
-.card img{width:100%;border-radius:10px;margin:10px 0}
-.sidebar .card{margin-bottom:20px}
-.section{margin-top:60px}
-.comment{background:#f9f9f9;padding:15px;border-left:5px solid #00a8ff;margin-bottom:15px;border-radius:8px}
-.thanks{background:#dff9fb;padding:20px;border-radius:10px}
-form input, form textarea{
-    width:100%;
-    padding:12px;
-    margin:10px 0;
-    border-radius:8px;
-    border:1px solid #ccc
-}
-form button{
-    background:#0f3460;
-    color:white;
-    padding:12px 20px;
-    border:none;
-    border-radius:8px;
-    cursor:pointer;
-}
-form button:hover{background:#00a8ff}
-footer{margin-top:50px;background:#111;color:white;text-align:center;padding:25px}
-@keyframes fadeIn{from{opacity:0;transform:translateY(-20px)}to{opacity:1;transform:translateY(0)}}
-@keyframes fadeUp{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}
-@media(max-width:768px){.grid{grid-template-columns:1fr}.hero h1{font-size:28px}}
-</style>
+        /* 2. MENÚ: Opciones */
+        nav ul {
+            background-color: #333;
+            color: white;
+            list-style-type: none;
+            padding: 10px;
+            margin: 10px 0;
+            display: flex;
+            justify-content: center;
+        }
+        nav ul li {
+            margin: 0 20px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* Estilos generales de sección */
+        section {
+            margin-bottom: 30px;
+            padding-top: 10px;
+        }
+        section h2 {
+            border-bottom: 2px solid #333;
+            padding-bottom: 5px;
+        }
+
+        /* Estilos para el formato de artículos (rojo) solicitado en la imagen */
+        .article-block {
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            padding: 15px;
+        }
+        .article-title {
+            color: red; /* Título en rojo */
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        .article-category {
+            color: red; /* Categoría en rojo */
+            font-style: italic;
+            margin-top: -5px;
+        }
+        .article-text {
+            color: red; /* Texto del artículo en rojo */
+            margin-top: 10px;
+        }
+
+        /* Estilos para tablas de noticias (Requisitos 3a y 4a) */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 15px;
+        }
+        table, th, td {
+            border: 1px solid #ccc;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #eee;
+        }
+
+        /* Estilos para multimedia (Requisitos 3b y 3c) */
+        .media-placeholder {
+            display: block;
+            margin: 10px 0;
+            max-width: 100%;
+        }
+
+    </style>
 </head>
-
 <body>
 
-<header id="inicio">
-    <h1>PORTAL DE NOTICIAS PROFESIONAL</h1>
-    <p>Innovación | Infraestructura | Desarrollo</p>
-</header>
+    <header>
+        <div class="logo-placeholder">[ LOGOTIPO DE REFERENCIA AQUÍ ]</div>
+        <h1>El Faro</h1>
+    </header>
 
-<nav>
-    <a href="#inicio">Inicio</a>
-    <a href="#noticias">Noticias</a>
-    <a href="#proyectos">Proyectos</a>
-    <a href="#contacto">Contacto</a>
-</nav>
+    <nav>
+        <ul>
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#deporte">Deporte</a></li>
+            <li><a href="#negocios">Negocios</a></li>
+        </ul>
+    </nav>
 
-<div class="hero">
-    <h1>Construcción de Nueva Pista Marca un Hito en Ingeniería</h1>
-</div>
+    <div id="inicio"></div>
 
-<div class="container">
+    <section>
+        <h2>Sección de Artículos de Noticias</h2>
 
-<div class="section" id="inicio">
-    <div class="card">
-        <h2>Bienvenido al Portal</h2>
-        <p>Portal informativo sobre el proyecto liderado por René Muñoz Perot del Instituto Profesional AIEP.</p>
-    </div>
-</div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Título (General)</th>
+                    <th>Resumen</th>
+                    <th>Fecha</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Descubrimiento en la costa central</td>
+                    <td>Arqueólogos hallan restos de una antigua civilización pesquera...</td>
+                    <td>15/10/2023</td>
+                </tr>
+                <tr>
+                    <td>Cambios en el transporte local</td>
+                    <td>Nuevas rutas de autobús buscan reducir el tráfico...</td>
+                    <td>14/10/2023</td>
+                </tr>
+                <tr>
+                    <td>Resultados de las elecciones vecinales</td>
+                    <td>La comunidad eligió a sus representantes para el próximo periodo...</td>
+                    <td>13/10/2023</td>
+                </tr>
+            </tbody>
+        </table>
 
-<div class="section" id="noticias">
-    <h2>Noticias Destacadas</h2>
-    <div class="grid">
-        <div class="card">
-            <h3>Avance del Proyecto</h3>
-            <p>70% de avance con cumplimiento de estándares.</p>
+        <h3>Video de Referencia</h3>
+        <video class="media-placeholder" controls src="video_referencia.mp4" width="400" poster="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0MDAgMjI1Ij48cmVjdCB3aWR0aD0iNDAwIiBoZWlnaHQ9IjIyNSIgZmlsbD0iI2NjYyIvPjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkeT0iLjNlbSIgZmlsbD0iIzY2NiI+W1ZJREVPIFBSRVZJRVddPC90ZXh0Pjwvc3ZnPg==">
+            Su navegador no soporta el elemento de video.
+        </video>
+
+        <h3>Audio de Referencia</h3>
+        <audio class="media-placeholder" controls src="audio_referencia.mp3">
+            Su navegador no soporta el elemento de audio.
+        </audio>
+    </section>
+
+    <section id="deporte">
+        <h2>Sección de Deporte</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Título (Deporte)</th>
+                    <th>Equipo/Atleta</th>
+                    <th>Marcador/Resultado</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Victoria decisiva del equipo local</td>
+                    <td>El Faro F.C. vs. Los Águilas</td>
+                    <td>3 - 1</td>
+                </tr>
+                <tr>
+                    <td>Récord roto en la maratón anual</td>
+                    <td>María González</td>
+                    <td>Nuevo tiempo de 2:35:10</td>
+                </tr>
+                <tr>
+                    <td>Anuncio del torneo de tenis juvenil</td>
+                    <td>Club de Tenis Regional</td>
+                    <td>Inscripciones abiertas</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section id="negocios">
+        <h2>Sección de Negocios</h2>
+
+        <div class="article-block">
+            <p class="article-title">Nueva Startup de Tecnología Verde Recibe Inversión</p>
+            <p class="article-category">Categoría: Negocios/Emprendimientos</p>
+            <p class="article-text">
+                Una joven empresa local dedicada a soluciones de energía solar doméstica ha asegurado un importante financiamiento de capital de riesgo para expandir sus operaciones... (Texto de referencia de noticia)
+            </p>
         </div>
-        <div class="card">
-            <h3>Impacto Urbano</h3>
-            <p>Mejora significativa en conectividad.</p>
+
+        <div class="article-block">
+            <p class="article-title">Comercio Local Adopta Métodos de Pago Digitales</p>
+            <p class="article-category">Categoría: Negocios</p>
+            <p class="article-text">
+                Una asociación de pequeños comerciantes del centro de la ciudad reporta un incremento en las ventas tras implementar plataformas de pago electrónico y códigos QR... (Texto de referencia de noticia)
+            </p>
         </div>
-    </div>
-</div>
 
-<div class="section" id="proyectos">
-    <h2>Detalles del Proyecto</h2>
-    <div class="card">
-        <p>Uso de tecnología moderna, materiales sustentables y diseño seguro.</p>
-        <p>Proyecto liderado por René Muñoz Perot (AIEP).</p>
-    </div>
-</div>
+        <div class="article-block">
+            <p class="article-title">Inauguración del Nuevo Espacio de Co-working en El Faro</p>
+            <p class="article-category">Categoría: Emprendimientos</p>
+            <p class="article-text">
+                Se ha abierto oficialmente el primer espacio de trabajo compartido en la ciudad, diseñado para apoyar a freelancers y pequeños emprendedores que buscan un entorno colaborativo... (Texto de referencia de noticia)
+            </p>
+        </div>
+    </section>
 
-<div class="section">
-<div class="grid">
-<div class="card">
-    <h2>Proyecto Principal</h2>
-    <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1200&q=80" alt="Construcción de pista moderna">
-    <p>Obra de alto impacto en infraestructura urbana.</p>
-</div>
-<div class="sidebar">
-    <div class="card">
-        <h3>Última Hora</h3>
-        <p>Proyecto en tiempo récord.</p>
-    </div>
-</div>
-</div>
-</div>
-
-<div class="section">
-    <h2>Opiniones</h2>
-    <div class="comment"><strong>Aline Medina:</strong><p>Innovador.</p></div>
-    <div class="comment"><strong>Felipe Aviño:</strong><p>Gran aporte.</p></div>
-    <div class="comment"><strong>Christian Escobar:</strong><p>Excelente.</p></div>
-</div>
-
-<div class="section">
-    <h2>Agradecimiento</h2>
-    <div class="thanks">René Muñoz P agradece a Roberto Carmona Claro.</div>
-</div>
-
-<div class="section" id="contacto">
-    <h2>Contacto</h2>
-    <div class="card">
-        <form onsubmit="enviarFormulario(event)">
-            <input type="text" placeholder="Tu nombre" required>
-            <input type="email" placeholder="Tu correo" required>
-            <textarea rows="5" placeholder="Tu mensaje" required></textarea>
-            <button type="submit">Enviar Mensaje</button>
-        </form>
-        <p id="mensajeExito" style="display:none;color:green;margin-top:10px">Mensaje enviado correctamente ✔</p>
-    </div>
-</div>
-
-</div>
-
-<footer>
-    <p>&copy; 2026 Noticias Profesionales</p>
-</footer>
-
-<script>
-function enviarFormulario(e){
-    e.preventDefault();
-    document.getElementById('mensajeExito').style.display='block';
-}
-
-window.addEventListener('scroll',()=>{
-    document.querySelectorAll('.card').forEach(el=>{
-        const top=el.getBoundingClientRect().top;
-        if(top<window.innerHeight-50){
-            el.style.opacity=1;
-            el.style.transform='translateY(0)';
-        }
-    })
-})
-</script>
+    <p style="font-size: 0.8em; color: gray;">*Importante: Este documento es un prototipo con contenido de referencia.*</p>
 
 </body>
 </html>
